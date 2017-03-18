@@ -3217,6 +3217,10 @@
 	.wrapper {
 		position: relative;
 	}
+		.wrapper h2 {
+			padding-top: 10px;
+			margin-left: 50px;
+		}
 
 		.wrapper > .inner {
 			padding: 5em 5em 3em 5em ;
