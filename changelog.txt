@@ -1,5 +1,0 @@
-Version 0.01 (March 19, 2017)
--Renamed elements in navigation
--Added initial content on "Prelims Page"
--Added "additional.js" for toggle mechanism
--Added css lines in main.css (Under Additional CSS - at the bottom)
