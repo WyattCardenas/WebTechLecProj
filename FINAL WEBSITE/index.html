@@ -265,12 +265,12 @@
 													<tr>
 														<td>100</td>
 														<td>Continue</td>
-														<td></td>
+														<td>The client should continue with the request</td>
 													</tr>
 													<tr>
 														<td>101</td>
 														<td>Switching Protocol</td>
-														<td>The server will switch the HTTP protocol used.</td>
+														<td>The server will switch the HTTP protocol being used.</td>
 													</tr>
 												</tbody>
 											</table>
@@ -294,32 +294,32 @@
 													<tr>
 														<td>201</td>
 														<td>Created</td>
-														<td>Cia PUT</td>
+														<td>Via PUT</td>
 													</tr>
 													<tr>
 														<td>202</td>
 														<td>Accepted</td>
-														<td>Recieved information but havent acted on it</td>
+														<td>Received information but have not acted on it</td>
 													</tr>
 													<tr>
 														<td>203</td>
 														<td>Non-Authorative Information</td>
-														<td>Resource Came from somewhere else.</td>
+														<td> The resource came from somewhere else.</td>
 													</tr>
 													<tr>
 														<td>204</td>
 														<td>No Content</td>
-														<td>Successful but will not sent anything</td>
+														<td>Successful but will not send anything</td>
 													</tr>
 													<tr>
 														<td>205</td>
 														<td>Reset Content</td>
-														<td>Reset the state of te resource</td>
+														<td>Reset the state of the resource</td>
 													</tr>
 													<tr>
 														<td>206</td>
 														<td>Partial Content</td>
-														<td>A portion of the resource</td>
+														<td>Will return a portion of the resource</td>
 													</tr>
 												</tbody>
 											</table>
@@ -338,7 +338,7 @@
 													<tr>
 														<td>300</td>
 														<td>Multiple Choice</td>
-														<td>Specify which confiturations</td>
+														<td>User can select from available configurations</td>
 													</tr>
 													<tr>
 														<td>301</td>
@@ -348,12 +348,12 @@
 													<tr>
 														<td>302</td>
 														<td>Found</td>
-														<td>URL rewriting</td>
+														<td>The resource is located at a temporary URL</td>
 													</tr>
 													<tr>
 														<td>303</td>
 														<td>See Other</td>
-														<td>URL Rewriting</td>
+														<td>The resource request can be found under a different URL</td>
 													</tr>
 													<tr>
 														<td>304</td>
@@ -363,17 +363,17 @@
 													<tr>
 														<td>305</td>
 														<td>Use Proxy</td>
-														<td></td>
+														<td>The resource must be accessed through a given proxy</td>
 													</tr>
 													<tr>
 														<td>306</td>
 														<td>-UNUSED-</td>
-														<td></td>
+														<td>The status code was used in a previous specification</td>
 													</tr>
 													<tr>
 														<td>307</td>
 														<td>Temporary Redirect</td>
-														<td>Fetched the resource somewhere else</td>
+														<td>The user should fetch the resource somewhere else</td>
 													</tr>
 												</tbody>
 											</table>
@@ -392,12 +392,12 @@
 													<tr>
 														<td>400</td>
 														<td>Bad Request</td>
-														<td>The Request was bad</td>
+														<td>The request could not be understood by the server.</td>
 													</tr>
 													<tr>
 														<td>401</td>
 														<td>Unauthorized</td>
-														<td></td>
+														<td>The client needs to be an authorized user before accessing the resource</td>
 													</tr>
 													<tr>
 														<td>402</td>
@@ -412,7 +412,7 @@
 													<tr>
 														<td>404</td>
 														<td>Not Found</td>
-														<td>The resource is not found</td>
+														<td>The resource cannot found</td>
 													</tr>
 													<tr>
 														<td>405</td>
@@ -431,7 +431,7 @@
 													</tr>
 													<tr>
 														<td>408</td>
-														<td>Request Timed out</td>
+														<td>Request Timeout</td>
 														<td>The server took too long to respond to the request</td>
 													</tr>
 													<tr>
@@ -442,17 +442,17 @@
 													<tr>
 														<td>410</td>
 														<td>Gone</td>
-														<td>The resource doesnt exist anymore</td>
+														<td>The resource is no longer there</td>
 													</tr>
 													<tr>
 														<td>411</td>
 														<td>Length Required</td>
-														<td></td>
+														<td>The request should include a defined length</td>
 													</tr>
 													<tr>
 														<td>412</td>
 														<td>Precondition Failed</td>
-														<td></td>
+														<td>The precondition in the request-header field is wrong</td>
 													</tr>
 													<tr>
 														<td>413</td>
@@ -472,12 +472,12 @@
 													<tr>
 														<td>416</td>
 														<td>Requested Range Not Satisfiable</td>
-														<td></td>
+														<td>The request should include a Content-Range entity header that specifies the length of the resource</td>
 													</tr>
 													<tr>
 														<td>417</td>
 														<td>Expectation Failed</td>
-														<td></td>
+														<td>The expectation given in the request-header field could not be done by the server</td>
 													</tr>
 													<tr>
 														<td>426</td>
@@ -516,7 +516,7 @@
 													<tr>
 														<td>503</td>
 														<td>Service Unavailable</td>
-														<td></td>
+														<td>The server cannot handle the request as of now.</td>
 													</tr>
 													<tr>
 														<td>504</td>
