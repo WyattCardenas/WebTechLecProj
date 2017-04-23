@@ -940,6 +940,372 @@
                                     
 									
 									<h3 id="csscript">Chapter 5: Client-Side Scripting with JavaScript</h3>
+									<p>Javascript is a scripting language that is used for client-side scripting to make the interaction side of javascript. Javacsript, being a scripting language, doesnt need a compiler as it is interpreted and all browsers have built in javascript support so no additional software is needed other than a text editor to write code.</p>
+									<ul>
+										<li>The defacto client-side scripting language</li>
+										<li>An imperative programming language</li>
+										<li>Weakly typed</li>
+										<li>Uses variables to store values</li>
+										<li>Uses dynamic binding</li>
+										<li>Case-sensitive</li>
+									</ul>
+									<h4>Different ways of associating javascript to the HTML document</h4>
+									<h5>Inline scripts</h5>
+									<p>By using this method, you already include javascript as a value of an event attribute of an HTML element. As much as possible, avoid writing code like this.</p>
+									<pre><code>
+	&lt;element <b>onclick="inline-javascript-code-here"</b>&gt;
+	&lt;element <b>onchange="inline-javascript-code-here"</b>&gt;
+	&lt;element <b>onmouseover="inline-javascript-code-here"</b>&gt;
+	&lt;element <b>onmouseout="inline-javascript-code-here"</b>&gt;
+	&lt;element <b>onkeydown="inline-javascript-code-here"</b>&gt;
+	&lt;element <b>onload="inline-javascript-code-here"</b>&gt;
+									</code></pre>
+									<h5>Embedded scripts</h5>
+									<p>Code placed in between a pair of <b>&lt;script&gt;</b> and <b>&lt;/script&gt;</b> tags will be read and run while the browser is parsing the HTML file. Embedded scripts can be paced anywhere on the HTML document.</p>
+									<pre><code>
+	&lt;script&gt;
+		embedded javascript code
+	&lt;/script&gt;
+									</code></pre>
+									<h5>External scripts</h5>
+									<p>External scripts are separate javascript files that are linked inside the HTML document by using the <b>src</b> attribute inside the script element. Adding the <b>defer</b> attribute inside the script tags will let the browser load the script file after the browser has parsed the HTML document. The <b>async</b> attribute on the other hand lets the browser to load the HTML document and the script file asynchronously.</p>
+									<pre><code>
+	&lt;script src="path/to/script"&gt;&lt;/script&gt;
+	&lt;script <b>defer</b> src="path/to/script"&gt;&lt;/script&gt;
+	&lt;script <b>async</b> src="path/to/script"&gt;&lt;/script&gt;
+									</code></pre>
+									
+									<h5>No script tag</h5>
+									<p>This tag provides content when the browser used is not supporting/disabled javascripts.</p>
+									<pre><code>
+	&lt;noscript&gt;Javascript is needed to run this page! Please enable javascript 
+	support in your browser settings or use a browser that supports javascript.&lt;/noscript&gt;
+									</code></pre>
+
+									<h4>Types of Javascript Code</h4>
+									<ul>
+										<li><b>Top-level/global code</b> - executes on the fly and it is not member of a function code.</li>
+										<li><b>Function</b> - has to be called to be execute.</li>
+									</ul>
+
+									<h4>The Window Object</h4>
+									<p>It is an object that represents an open window in the browser. All objects, functions, and variables are automatically stored as a member of the window object which grants the user/developer access to these members. The use of the keyword window followed by a period allows access to a property of the window object but these properties may also be accessed without the window keyword followed by a period.</p>
+									<pre><code>
+	window.document 				--> document;
+	window.alert("An alert message");		--> alert("An alert message");
+	window.confirm("A confirmation message");	--> confirm("A confirmation message");
+	window.localStorage;				--> localStorage;
+	window.sessionStorage;				--> sessionStorage;
+									</code></pre>
+
+									<h4>The Document Object</h4>
+									<p>A document object is created when an HTML document is laoded into the web browser. All objects of the document are nodes and is based on the <abbr title="Document Object Model">DOM</abbr>.</p>
+									<ul>
+										<li>The loaded document is a document node</li>
+										<li>HTML elements are element nodes</li>
+										<li>HTML attributes are attribute nodes</li>
+										<li>Text are text nodes</li>
+										<li>Comments are comment nodes</li>
+									</ul>
+									
+
+									<h4>Manipulation of the document</h4>
+									<p>As explained in the window object section, everything loaded into the browser becomes members of the window object. So the document can be accessed and manipulated using <b>window.document</b> or also as stated above, simply <b>document</b>. Through the document object, you can access any HTML element.</p>
+
+									<p>The use of template strings allows easier ways of creating strings since it allows embedding expressions. Templete strings can be created through the use of the back-tick (` `) character and placeholders are indicated by the Dolalr sign and curly braces (${expression}).</p>
+									
+									<h5>Accessing HTML elements</h5>
+									<p>Accessing HTML elements is the first step to manipulating HTML elements. The accessed elements may also be stored inside a variable for future access.</p>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Method</th>
+													<th>Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>document.getElementById("id-here")</td>
+													<td>Gets an HTML element with the given ID.</td>
+												</tr>
+												<tr>
+													<td>document.getElementsByClassName("class-name")</td>
+													<td>Returns an array of HTML elements with the given class name.</td>
+												</tr>
+												<tr>
+													<td>document.getElementsByName("name-value")</td>
+													<td>Returns an array of HTML elements with the given value of the name attribute.</td>
+												</tr>
+												<tr>
+													<td>document.getElementsByTagName("HTML-tag")</td>
+													<td>Returns an array of HTML elements with the given HTML tag.</td>
+												</tr>
+												<tr>
+													<td>document.getElementsByTagNameNS(namespace, name)</td>
+													<td>Returns an array of HTML elements with the given HTML tag belonging to the given namespace.</td>
+												</tr>
+												<tr>
+													<td>document.querySelector("#id")</td>
+													<td>Returns an element with the given identifier. Follows the CSS format of accessing elements in the document.</td>
+												</tr>
+												<tr>
+													<td>document.querySelectorAll(".className-or-tagName")</td>
+													<td>Returns an array of elements with the given identifier. Follows the CSS format of accessing elements in the document.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<h6>Sample Code:</h6>
+									<pre><code>
+	...
+	&lt;body&gt;
+		&lt;h1 id="my-header"&gt;A sample header&lt;/h1&gt;
+		&lt;p class="text"&gt;Sample Text&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li class="text"&gt;List item 1&lt;/li&gt;
+			&lt;li class="text"&gt;List item 2&lt;/li&gt;
+			&lt;li class="text"&gt;List item 3&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;form&gt;
+			First Name:&lt;input name="fname" type="text"&gt;&lt;/input&gt;
+			Last Name:&lt;input name="lname" type="text"&gt;&lt;/input&gt;
+			&lt;input type="submit"&gt;&lt;/input&gt;
+		&lt;/form&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+
+	&lt;script&gt;
+		var header = document.getELementById("my-header");
+		var textArray = document.getElementsByClassName("text");
+		var firstName = document.getElementsByName("fname");
+		var lastName = document.getElementsByName("lname");
+		var listItems = document.getElementsByTagName("li");
+		
+		var header = document.querySelector("#my-header");
+		var textArray1 = document.querySelectorAll(".text");
+		var listItems1 = document.querySelectorAll("li");
+
+	&lt;/script&gt;
+									</code></pre>
+
+									<h5>Editing HTML elements</h5>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Method</th>
+													<th>Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>element.innerHTML = <i>new HTML elements and text here</i></td>
+													<td>This method accesses the elements' inner content and also parses HTML elements given to be parsed. </td>
+												</tr>
+												<tr>
+													<td>element.innerText = <i>new text here</i></td>
+													<td>This method accesses the elements' inner content but it does not parse any HTML elements given to it.</td>
+												</tr>
+												<tr>
+													<td>element.outerHTML = <i>new HTML elements and text here</i> </td>
+													<td>This method not only changes the inner content of the element but also includes the elements' tags and attributes to be replaced/editted and it also parses HTML tags given to it.</td>
+												</tr>
+												<tr>
+													<td>element.outerText = <i>new text here</i></td>
+													<td>This method also includes the elements' tags and attributes to be replaced/editted and it does not parse HTML tags given to it.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<h6>Sample code</h6>
+									<pre><code>
+	...
+	(continuation of previous sample code)
+
+	header.innerText = "New header Text";		//changes the text of the header
+	
+	//changes the text of all elements with the class name of text
+	for(var i=0; i&lt;textArray; i++){
+		textArray[i].innerHTML = "&lt;b&gt;New Text&lt;/b&gt;";
+	}
+	
+	//Also replaces the h1 tag but since its an outerHTML, it will also parse the new text as an h2 tag
+	header.outerHTML = `&lt;h2 id="${header.id}"&gt;New h2 header&lt;/h2<&gt;`;
+
+	header.innerText = "New h2 header text"		//changes the text of the header
+									</code></pre>
+
+									<h4>Addition and Deletion Elements</h4>
+									<div class="table-wrapper">
+										<table>
+											<theader>
+												<tr>
+													<th>Method</th>
+													<th>Description</th>
+												</tr>
+											</theader>
+											<tbody>
+												<tr>
+													<td>document.createElement("<i>element</i>")</td>
+													<td>Creates an element node.</td>
+												</tr>
+												<tr>
+													<td>document.createTextNode("<i>text</i>")</td>
+													<td>Creates a text node.</td>
+												</tr>
+												<tr>
+													<td>element.appendChild("<i>element</i>")</td>
+													<td>Appends an element or a text node to the accessed element or to the document.</td>
+												</tr>
+												<tr>
+													<td>element.replaceChild("<i>element</i>")</td>
+													<td>Replaces an element or a text node to the accessed element or to the document.</td>
+												</tr>
+												<tr>
+													<td>element.removeChild("<i>element</i>")</td>
+													<td>Removes an element inside the accessed element or to the document.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<h4>Node Operations</h4>
+									<div class="table-wrapper">
+										<table>
+											<theader>
+												<tr>
+													<th>Method</th>
+													<th>Description</th>
+												</tr>
+											</theader>
+											<tbody>
+												<tr>
+													<td>element.firstElementChild</td>
+													<td>Returns the first element child of the parent.</td>
+												</tr>
+												<tr>
+													<td>element.lastElementChild</td>
+													<td>Returns the last element child of the parent.</td>
+												</tr>
+												<tr>
+													<td>element.nextElementSibling</td>
+													<td>Returns the next element node with the same parent element and the same node tree level.</td>
+												</tr>
+												<tr>
+													<td>element.previousElementSibling</td>
+													<td>Returns the previous element node with the same parent element and the same node tree level.</td>
+												</tr>
+												<tr>
+													<td>element.parentElement</td>
+													<td>Returns the parent element node of the element specified.</td>
+												</tr>
+												<tr>
+													<td>element.firstChild</td>
+													<td>Returns the first child node of the element whether it is a text node or an element node.</td>
+												</tr>
+												<tr>
+													<td>element.lastChild</td>
+													<td>Returns the last child node of the element whether it is a text node or an element node.</td>
+												</tr>
+												<tr>
+													<td>element.nextSibling</td>
+													<td>Returns the next node with the same parent and the same node tree level whether it is a text node or an element node.</td>
+												</tr>
+												<tr>
+													<td>element.previousSibling</td>
+													<td>Returns the previous node with the same parent and the same node tree level whether it is a text node or an element node.</td>
+												</tr>
+												<tr>
+													<td>element.parentNode</td>
+													<td>Returns the parent node of the element.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<h4>Declaring Variables</h4>
+									<ul>
+										<li><b>Default (no keyword)</b> - A global varaible and becomes a property of the window object.</li>
+										<li><b>var</b> - Only exists inside the function its decaled on and also becomes a property of the window object</li>
+										<li><b>let</b> - Will only exist inside the block it was delcared in. If the variable is declared in the top-level, the variable is just standard.</li>
+										<li><b>const</b> - A constant variable and cannot be reassigned and will always need initialization. If the variable is declared in the top-level, the variable is just standard.</li>
+									</ul>
+
+									<h4>Data Types</h4>
+									<p></p>
+									Simple/Primitive data types:
+									<ul>
+										<li><b>Boolean</b>
+											<ul class="dashedUl">
+												<li>Simplest data type</li>
+												<li>"Falsy" - not really false but equivalent to false.</li>
+												<li>"Truthy" - not really true but equivalent to true.</li>
+												<li>0 is considered a false.</li>
+												<li>null, undefined, or empty string is false.</li>
+											</ul>
+										</li>
+										<li><b>Numbers</b> - all digits are considered as numbers</li>
+										<li><b>Strings</b>
+											<ul class="dashedUl">
+												<li>No char data type so single lettered strings are considered as strings.</li>
+												<li>Template literals (` `) are also considered as strings.</li>
+											</ul>
+										</li>
+										<li><b>Undefined</b></li>
+										<li><b>Null</b></li>
+									</ul>
+									
+									<h4>Arrays</h4>
+									<h5>Array instatiation</h5>
+									<p>Arrays can be instatiated in multiple ways and an array is not limited to only holding one type of data type.</p>
+									<pre><code>
+	var emptyArray = new Array();
+	var emptyArray1 = [];
+
+	var arrayWithLength = new Array(10);
+	var arrayWithOneElementAndValue = ["text"];
+
+	var array = new Array(1,2,3,4,5);
+	var sameArray = [1,2,3,4,5];
+
+	var mixedElementTypes = [1, false, "string", new Date(), {'object':test,'numbers':[1,2,3,4,5]}];
+
+									</code></pre>
+
+									<h5>Array destructuring</h5>
+									<p>Extract the elements of an array and assign it to different varaibles.</p>
+									<pre><code>
+	var array = [1,2,3,4,5];
+	var[a,b,c,d,e] = array;		//assign the values of array to a,b,c,d,e respectively
+
+	var[m,n,... others] = array;
+
+	//assign the values of array to [, x,, y] respectively with the first, third, and fifth values ignored.
+	var[, x,, y] = array;		
+									</code></pre>
+									<p>Array indices can be non-contigious</p>
+									<pre><code>
+	//array.length == 5 (not zero based)
+
+	array[20] = 1;		//elements at index 5 to 19 will be undefined
+
+	//array.length == 21 (after assisgning 1 to index 20)
+									</code></pre>
+
+									<h5>Objects</h5>
+									<p>These are variables that can contain many values. These values are written as <b>key:value</b> pairs and the key and value are separated by a colon.</p>
+									<pre><code>
+	var person = {};
+	person.name = "Jane Doe";
+	person.gender = "female";
+	person.age = 18;
+
+	var subject = {courseNumber:"IT324", courseDescription:"WebTek Lecture", units:"2"};
+	subject.classCode = "9355A";
+									</code></pre>
 								</section>
 
 							<!-- Section -->

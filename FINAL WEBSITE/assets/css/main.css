@@ -4116,3 +4116,15 @@
 		text-align: left;
 		border: 1px solid #666;
 	}
+
+
+.dashedUl {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+	.dashedUl > li:before {
+	  content: "–"; /* en dash */
+	  position: absolute;
+	  margin-left: -1.1em; 
+	}
