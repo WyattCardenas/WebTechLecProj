@@ -655,7 +655,289 @@
 									</code></pre>	
 									
 									<h3 id="css">Chapter 4: Cascading Style Sheets</h3>
+                                    <p>The <abbr title="Cascading Style Sheets">CSS</abbr> is used to specify presentation aspects of structurally marked up documents. It was developed by Hakon Wium Lie(CHSS) and Bert Bos(SSP)</p>
+									<h5>CSS Versions</h5>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Version</th>
+													<th>Year</th>
+													<th>Additional Notes</th>
+												</tr>
+											</thead>
+												<tbody>
+												<tr>
+													<td>CSS 1</td>
+													<td>1996</td>
+													<td>first specification to become an official W3C recommendation </td>
+												</tr>
+												<tr>
+													<td>CSS 2.1</td>
+													<td>2011</td>
+													<td>Revision of CSS 2 that corrects a few errors</td>
+												</tr>
+												<tr>
+													<td>CSS 3</td>
+													<td>2012</td>
+													<td>Divided into separate documents called "modules" </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+                                    
+                                    <h4>HTML/XHTML Stylesheets</h4>
+                                    <dl>
+                                        <dt>Author Styles</dt>
+                                        <dd><ul>
+                                            <li>External Stylesheets - use <strong>link</strong> tag to attach stylesheets for external</li>
+                                                <li>Embedded Styles - use <strong>style </strong> tag for embedded style, used for quick prototyping</li>
+                                                <li>Inline Styles - use	<strong>style</strong> attribute used for inline</li>
+                                                
+                                            </ul></dd>
+                                    <dt>User Styles</dt>
+                                        <dd>Preferences of the user (browser extensions)</dd>
+                                    <dt>User Agent Styles</dt>
+                                        <dd>Example default CSS 2.1 stylesheet for HTML 4 </dd>
+                                    </dl>
 									
+                                    <h4>CSS Statements</h4>
+                                    <h6>At-rules</h6>
+                                    <ul>
+                                        <li>@charset – including other characters</li>
+                                        <li>@import – including other content</li>
+                                        <li>@media – media queries</li>
+                                        <li>@font-face – include other fonts</li>
+                                        <li>@keyframes – keyframe animations</li>
+                                        <li>@page</li>
+                                        <li>@document</li>
+                                    </ul>
+                                    <h6>CSS Rule Sets(a.k.a CSS rules, style rules)</h6>
+                                    <ul>
+                                        <li>Consists of a selector, followed by a brace-enclosed block</li>
+                                        <li>The selector points to the HTML element you want to style</li>
+                                        <li>The declaration block contains one or more declarations separated by semicolons</li>
+                                        <li>Each declaration includes a CSS property name and a value, separated by a colon</li>
+                                        <li>A declaration always ends with a semicolon</li>
+                                        <li>Declaration blocks are surrounded by curly braces</li>
+                                    </ul>
+                                    
+                                    <h4>CSS Selectors</h4>
+                                    <h6>Selector</h6>
+                                    <ul>
+                                        <li>Condition in a CSS-rule to determine which elements in the document tree are matched by the selector and are thus targeted by the formatting specified in the CSS rule declaration</li>
+                                        <li>Matched elements</li>
+                                    </ul>
+                                    <h6>Selector Syntax</h6>
+                                    <ul>
+                                        <li>Chain of one or more sequences of simple selectors separated by combinators, with one pseudo-element possibly appended to the last sequence</li>
+                                        <br>
+                                        <strong><span>div#abc>p.xyz[title] + span::first-child::after</span></strong>
+                                        <li>Sequence of simple selectors<ul style="list-style-type:circle">
+                                            <li>Chain of simple selectors not separated by combinators</li>
+                                            <li>Always start with a type selector or a universal selector </li>
+                                            <li>Cannot contain other type selectors or universal selectors</li>
+                                            </ul></li>
+                                        <li>Group of Selectors<ul style="list-style-type:circle">
+                                            <li>Comma-separated list of selectors representing the union of all elements selected by each of the selectors in the list</li></ul></li>
+                                    </ul>
+                                    <h6>Simple Selectors</h6>
+                                    <ul>
+                                        <li>Type Selector
+                                            <ul style="list-style-type:circle">
+                                                <li>p</li>
+                                                <li>div</li>
+                                                <li>span</li>
+                                        </ul></li>
+                                         <li>Univeral selector
+                                            <ul style="list-style-type:circle">
+                                                <li>*</li>
+                                             </ul>
+                                        </li>
+                                        <li>Attribute selector  <br><span>- targets an element based on the value</span>
+                                        <ul style="list-style-type:circle">
+                                            <li>[attr]</li>
+                                            <li>[attr = value]</li>
+                                            <li>[attr ~ = value]</li>
+                                            <li>[attr |= value]</li>
+                                            <li>[attr ^= value]</li>
+                                            <li>[attr $= value]	</li>
+                                            <li>[attr *= value]</li>
+                                            </ul></li>
+                                        <li>Class Selector - makes use of a period</li>
+                                        <li>ID selector</li>
+                                        <li>Pseudo-class<ul><li>Dynamic Pseudo class<ul style="list-style-type:circle">
+                                            <li>link pseudo class 
+                                                <ul style="list-style-type:square"><li>:link</li>
+                                                <li>:visited</li></ul></li>
+                                            <li>hover/user action pseudo class
+                                                <ul style="list-style-type:square">
+                                                    <li>:hover</li>
+                                                    <li>:active</li>
+                                                    <li>:focus</li>
+                                                </ul></li>
+                                            <li>target pseudo class
+                                                <ul style="list-style-type:square">
+                                                    <li>:target</li>
+                                                </ul></li>
+                                             <li>language pseudo class
+                                                <ul style="list-style-type:square">
+                                                    <li>:lang()</li>
+                                                </ul></li>
+                                            <li>UI element pseudo class
+                                                <ul style="list-style-type:square">
+                                                    <li>:enabled</li>
+                                                    <li>:disabled</li>
+                                                    <li>:checked</li>
+                                                    <li>:indeterminate</li>
+                                                </ul></li>
+                                            <li>Structural pseudo class
+                                                <ul style="list-style-type:square">
+                                                    <li>:root</li>
+                                                    <li>:first-child</li>
+                                                    <li>:last-child</li>
+                                                    <li>:only-child</li>
+                                                    <li>:Nth-child()</li>
+                                                    <li>:Nth-last-child</li>
+                                                    <li>:first-of-type</li>
+                                                    <li>:last-of-type</li>
+                                                    <li>:only-of-type</li>
+                                                    <li>:nth-of-type()</li>
+                                                    <li>:nth-last-of-type()</li>
+                                                    <li>:empty</li>
+                                                </ul></li>
+                                            <li>Negation pseudo class
+                                                <ul style="list-style-type:square">
+                                                    <li>:not()</li>
+                                                </ul></li>
+                                            </ul></li>
+                                            </ul></li>
+                                        <li>Combinators
+                                        <ul style="list-style-type:circle">
+                                            <li>Descendant combinator (whitespace)</li>
+                                            <li>Child-combinator (>)</li>
+                                            <li>Sibling combinator
+                                                <ul style="list-style-type:square">
+                                                    <li>adjacent sibling combinators (+)</li>
+                                                    <li>general sibling combinator (~)</li>
+                                                </ul></li>
+                                            </ul></li>
+                                        <li>Pseudo-elements
+                                        <ul style="list-style-type:circle">
+                                            <li>::first-letter </li>
+                                            <li>::first-line</li>
+                                            <li>::before</li>
+                                            <li>::after</li>
+                                            </ul></li>
+                                    </ul>
+                            
+                                <h4>CSS Rule Precedence</h4>
+                                    <ul>
+                                        <li>By origin and importance
+                                        <ul style="list-style-type:circle"><li>!important</li>
+                                            </ul></li>
+                                        <span>Order:
+                                        <ul style="list-style-type:circle">
+                                            <li>user agent important declarations</li>
+                                            <li>user important declarations</li>
+                                            <li>author important declarations</li>
+                                            <li>author normal declarations</li>
+                                            <li>user normal declarations</li>
+                                            <li>user agent normal declarations</li>
+                                            </ul></span>
+                                        <li>By Specificity
+                                        <ul style="list-style-type:circle">
+                                            <li>inline style</li>
+                                            <li>number of ID selectors</li>
+                                            <li>number of class-selectors, attribute selectors, and pseudo-classes</li>
+                                            <li>number of type selectors and pseudo- elements</li>
+                                        </ul></li>
+                                        <li>By Order
+                                        <ul style="list-style-type:circle"><li>Last one wins</li>
+                                            </ul></li>   
+                                    </ul>
+                                <h4>CSS Declarations</h4>
+                                    <ul>
+                                    <li>Properties
+                                        <ul style="list-style-type:circle"><li>Shorthand properties</li>
+                                        <li>Vendor specific extensions</li>
+                                            </ul></li>
+                                    <li>Values
+                                        <ul style="list-style-type:circle">
+                                        <li>Keywords</li>
+                                        <li>Numbers
+                                            <ul style="list-style-type:square">
+                                                <li>integers, decimals etc.</li>
+                                            </ul></li>
+                                        <li>Dimensions
+                                            <ul style="list-style-type:square">
+                                                <li>length</li>
+                                                <li>angle</li>
+                                                <li>duration</li>
+                                                <li>frequency</li>
+                                                <li>resolution</li>
+                                            </ul></li>
+                                        <li>Length units
+                                            <ul style="list-style-type:square">
+                                                <li>font-relative : em, ex ,ch ,rem</li>
+                                                <li>viewport-percentage: vw, vh , vmin, vmax</li>
+                                                <li>absolute lengths: cm, mm, q, in, pt, pc, px</li>
+                                            </ul></li>
+                                        <li>Angle units
+                                            <ul style="list-style-type:square">
+                                                <li>deg</li>
+                                                <li>grad</li>
+                                                <li>rad</li>
+                                                <li>turn</li>
+                                            </ul></li>
+                                        <li>Duration units
+                                            <ul style="list-style-type:square">
+                                                <li>s</li>
+                                                <li>ms</li>
+                                            </ul></li>
+                                        <li>Frequency units
+                                            <ul style="list-style-type:square">
+                                                <li>hz</li>
+                                                <li>khz</li>
+                                            </ul></li>
+                                        <li>Resolution units
+                                            <ul style="list-style-type:square">
+                                                <li>dpi</li>
+                                                <li>dpcm</li>
+                                                <li>dppx</li>
+                                            </ul></li>
+                                        <li>Percentages</li>
+                                        <li>URLs and URIs</li>
+                                        <li>Colors</li>
+                                        <li>Strings</li>
+                                        <li>Functions
+                                            <ul style="list-style-type:square">
+                                                <li>calc()</li>
+                                                <li>attr()</li>
+                                                <li>counter()</li>
+                                                <li>linear-gradient()</li>
+                                                <li>radial-gradient()</li>
+                                                <li>translate()</li>
+                                                <li>scale()</li>
+                                                <li>rotate()</li>
+                                            </ul></li>
+                                        </ul></li>
+                                    </ul>
+                                <h4>CSS Preprocessors and Frameworks</h4>
+                                    <ul>
+                                        <li>Use advanced syntax, converts syntax into something valid</li>
+                                        <li>Using existing frameworks to create webpages</li> </ul>
+                                        <hr>
+                                    <ul style="list-style-type:circle">
+                                        <li>Sass - Syntactically Awesome Style Sheet</li>
+                                        <li>Less - dynamic style sheet language </li>
+                                        <li>960 Grid System - commonly used dimensions based on the width of 960 pixels</li>
+                                        <li>Bootstraps - open source front-end web framework for designing </li>
+                                        <li>Foundation - responsive front-end framework</li>
+                                        <li>Materialize - responsive CSS framework based on Material Design by Google</li>
+                                        <li>etc.</li>
+                                    </ul>
+                                    
 									
 									<h3 id="csscript">Chapter 5: Client-Side Scripting with JavaScript</h3>
 								</section>
