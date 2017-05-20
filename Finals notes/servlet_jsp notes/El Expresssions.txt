@@ -1,0 +1,21 @@
+El Expressions - can appear in template data and in attribute values. 
+	       - are defined in more detail in Chapter JSP.2, “Expression Language”. 
+	       - can be disabled through the use of JSP configuration elements and page directives; see Section JSP.1.10.1 and Section JSP.3.3.2, “Deactivating EL Evaluation”. 
+	       - when not disabled, can be used anywhere within template data. 
+	       - can be used in any attribute of a standard action that this specification indicates can accept a run-time expression value, and in any attribute of a custom action that has been indicated to accept run-time expressions (i.e. their associated <rtexprvalue> in the TLD is true; see Appendix JSP.C).
+
+Expression					Result
+${header["host"]}				The host
+
+${!empty param.Add}				False if the request parameter named Add is null or an empty string.
+
+${pageContext.request.requestURI} 		The request's URI (obtained from HttpServletRequest)
+
+${sessionScope.profile} 			The session-scoped attribute named profile (null if not found)
+
+${param.productId} 				The String value of the productId parameter, or null if not found
+
+${paramValues.productId} 			The String[] containing all values of the productId parameter, or null if not found
+
+
+

@@ -1,0 +1,42 @@
+action - An element in a JSP page that can act on implicit objects and other server-side objects or can define new scripting variables. Actions follow the XML syntax for elements with a start tag, a body and an end tag; if the body is empty it can also use the empty tag syntax. The tag must use a prefix.
+action, standard - An action that is defined in the JSP specification and is always available to a JSP file without being imported.
+action, custom - An action described in a portable manner by a tag library descriptor and a collection of Java classes and imported into a JSP page by a taglib directive.
+Application Assembler - A person that combines JSP pages, servlet classes, HTML content, tag libraries, and other Web content into a deployable Web application.
+classic tag handler - A tag handler that implements the javax.servlet.jsp.tagext.Tag interface.
+component contract The contract between a component and its container, including life cycle management of the component and the APIs and protocols that the container must support.
+Component Provider - A vendor that provides a component either as Java classes or as JSP page source.
+distributed container - A JSP container that can run a Web application that is tagged as distributable and is spread across multiple Java virtual machines that might be running on different hosts.
+declaration - A scripting element that declares methods, variables, or both in a JSP page. Syntactically it is delimited by the <%! and %> characters.
+directive - An element in a JSP page that gives an instruction to the JSP container and is interpreted at translation time. Syntactically it is delimited by the <%@ and %> characters.
+dynamic - attribute An attribute, passed to a custom action, whose name is not explicitly declared in the tag library descriptor.
+element - A portion of a JSP page that is recognized by the JSP translator. An element can be a directive, an action, or a scripting element.
+EL expression - An element in a JSP page representing an expression to be parsed and evaluated via the JSP Expression Language. Syntactically it is delimited by the ${ and } characters.
+expression - Either a scripting expression or an EL expression.
+fixed template data Any portions of a JSP file that are not described in the JSP specification, such as HTML tags, XML tags, and text. The template data is returned to the client in the response or is processed by a component.
+implicit - object A server-side object that is defined by the JSP container and is always available in a JSP file without being declared. The implicit objects are request, response, pageContext, session, application, out, config, page, and
+exception for scriptlets and scripting expressions. The implicit objects are pageContext, pageScope, requestScope, sessionScope, applicationScope, param, paramValues, header, headerValues, cookie and initParam for EL expressions.
+JavaServer Pages technology - An extensible Web technology that uses template data, custom elements, scripting languages, and server-side Java objects to return dynamic content to a client. Typically the template data is HTML or XML elements, and in many cases the client is a Web browser.
+JSP container - A system-level entity that provides life cycle management and runtime support for JSP and servlet components.
+JSP configuration - The deployment-time process by which the JSP container is declaratively configured using a deployment descriptor.
+JSP file - A text file that contains JSP elements, forming a complete JSP page or just a partial page that must be combined with other JSP files to form a complete page. Most top-level JSP files have a .jsp extension, but other extensions can be configured as well.
+JSP fragment - A portion of JSP code, translated into an implementation of the javax.servlet.jsp.JspFragment abstract class.
+JSP page - One or more JSP files that form a syntactically complete description for processing a request to create a response.
+JSP page, front - A JSP page that receives an HTTP request directly from the client. It creates, updates, and/or accesses some server-side data and then forwards the request to a presentation JSP page.
+JSP page, presentation - A JSP page that is intended for presentation purposes only. It accesses and/or updates some server-side data and incorporates fixed template data to create content that is sent to the client.
+JSP page implementation class - The Java programming language class, a servlet, that is the runtime representation of a JSP page and which receives the request object and updates the response object. The page implementation class can use the services provided by the JSP container, including both the servlet and the JSP APIs.
+JSP page implementation object - The instance of the JSP page implementation class that receives the request object and updates the response object.
+JSP segment - A portion of JSP code defined in a separate file, and imported into a page using the include directive.
+named attribute - A standard or custom action attribute whose value is definedusing the <jsp:attribute> standard action.
+scripting element - A declaration, scriptlet, or expression, whose tag syntax isdefined by the JSP specification, and whose content is written according to the scripting language used in the JSP page. The JSP specification describes the syntax and semantics for the case where the language page attribute is java.
+scripting expression - A scripting element that contains a valid scripting language expression that is evaluated, converted to a String, and placed into the implicit out object. Syntactically it is delimited by the <%= and %> characters.
+scriptlet - An scripting element containing any code fragment that is valid in the scripting language used in the JSP page. The JSP specification describes what is a valid scriptlet for the case where the language page attribute is java. Syntactically a scriptlet is delimited by the <% and %> characters.
+simple tag handler - A tag handler that implements the javax.servlet. jsp.tagext.SimpleTag interface.
+tag - A piece of text between a left angle bracket and a right angle bracket that has a name, can have attributes, and is part of an element in a JSP page. Tag names are known to the JSP translator, either because the name is part of the JSP specification (in the case of a standard action), or because it has been introduced using a Tag Library (in the case of custom action). text-based document that uses fixed template data and JSP elements to define a custom action. The semantics of a tag file are realized at runtime by a tag handler.tag library A collection of custom actions described by a tag library descriptor and Java classes.
+tag library descriptor - An XML document describing a tag library.
+Tag Library Provider - A vendor that provides a tag library. Typical examples may be a JSP container vendor, a development group within a corporation, a component vendor, or a service vendor that wants to provide easier use of their services.
+web application - An application built for the Internet, an intranet, or an extranet. web application, distributable A Web application that is written so that it can be deployed in a Web container distributed across multiple Java virtual machines running on the same host or different hosts. The deployment descriptor for such an application uses the distributable element.
+Web Application Deployer - A person who deploys a Web application in a Web
+container, specifying at least the root prefix for the Web application, and in a
+Java EE environment, the security and resource mappings.
+web component - A servlet class or JSP page that runs in a JSP container and provides services in response to requests.
+Web Container Provider - A vendor that provides a servlet and JSP container that support the corresponding component contracts.

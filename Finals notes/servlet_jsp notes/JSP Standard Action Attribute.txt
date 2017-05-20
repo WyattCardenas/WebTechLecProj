@@ -1,0 +1,51 @@
+Standard Action
+Standard actions are represented using XML elements with a prefix of jsp (though that prefix can be redefined in the XML syntax). A translation error will result if the JSP prefix is used for an element that is not a standard action.
+
+
+Element Body 			Production 		Valid Attribute Combinations
+jsp:useBean 			OptionalBody		( !id, scope, !class ) 
+				OptionalBody		( !id, scope, !type ) 
+				OptionalBody 		( !id, scope, !class, !type ) 
+				OptionalBody		( !id, scope, =!beanName, !type )	
+
+jsp:setProperty 		EmptyBody		( !name, !property, param ) 
+				EmptyBody 		( !name, !property, =!value )
+
+jsp:get				Property EmptyBody 	( !name, !property )
+
+jsp:include 			ParamBody 		( =!page, flush )
+
+jsp:forward 			ParamBody 		( =!page )
+
+jsp:plugin 			PluginBody 		( !type, !code, !codebase, 
+							align, archive, =height, 
+							hspace, jreversion, name, 
+							vspace, title, =width, nspluginurl, 
+							iepluginurl, mayscript )
+
+jsp:invoke 			EmptyBody 		( !fragment, !var, scope ) 
+				EmptyBody		( !fragment, !varReader, scope ) 
+				EmptyBody		( !fragment )
+
+
+jsp:doBody 			EmptyBody		 ( !var, scope ) 
+				EmptyBody		 ( !varReader, scope ) 
+							 ()
+
+jsp:element      		OptionalBody 		 ( =!name )
+
+jsp:output 			EmptyBody     		( omit-xml-declaration ) 
+				EmptyBody 		( omit-xml-declaration, !doctype-root-element,
+							 !doctype-system, doctype-public ) 
+
+jsp:param 			EmptyBody 		( !name, =!value )
+
+
+
+
+	
+				
+							
+
+				
+

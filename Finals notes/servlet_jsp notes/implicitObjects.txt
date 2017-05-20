@@ -1,0 +1,38 @@
+Implicit Objects
+
+These Objects are the Java objects that the JSP Container makes available to the developers in each page and the 
+developer can call them directly without being explicitly declared.
+
+request - whenever a client requests a page the JSP engine creates a new object to represent that request.
+
+        - The request object provides methods to get the HTTP header information including form data, cookies, HTTP methods etc.
+
+response - when a request is created it also creates an object to represent the response to the client.
+          
+         - The response object also defines the interfaces that deal with creating new HTTP headers.
+         
+         - Through this object the JSP programmer can add new cookies or date stamps, HTTP status codes, etc.
+ 
+out - used to send content in a response.
+
+    out.print(dataType dt) - Print a data type value
+
+    out.println(dataType dt) - Print a data type value then terminate the line with new line character.
+
+    out.flush() - Flush the stream.
+
+session - behaves exactly the same way that session objects behave under Java Servlets.
+        - used to track client session between client requests.
+
+application - a representation of the JSP page through its entire lifecycle. 
+            - created when the JSP page is initialized and will be removed when the JSP page is removed by the jspDestroy() method.
+
+config - allows the JSP programmer access to the Servlet or JSP engine initialization parameters such as the paths or file locations etc.
+
+pageContext -  The pageContext object is used to represent the entire JSP page.
+
+            -  intended as a means to access information about the page while avoiding most of the implementation details.
+
+page - The page object is really a direct synonym for the this object.
+
+exception - It is typically used to generate an appropriate response to the error condition.

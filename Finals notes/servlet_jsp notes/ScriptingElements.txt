@@ -1,0 +1,16 @@
+JSP Scripting Elements
+
+Declarations - declaring one or more variables/methods. These declarations can be used in a Java code later in a JSP file. 
+ 	     - variable or method should be declared before it is used in the JSP file.
+
+Expressions - can contain any expression as long as it is validated based from the Java Language Specification. 
+	    - a semicolon is not needed to end an expression.
+
+Scriptlets - can contain any code fragments that are valid for the scripting language specified in the language attribute of the page directive. Whether the code fragment is legal depends on the details of the scripting language 
+	   - executed at request-processing time. Whether or not they produce any output into the out stream depends on the code in the scriptlet. 
+	   - can have side-effects, modifying the objects visible to them. 
+
+Sriptlet Expression
+	-Scriptlet expressions used to specify request-time attribute values use a slightly different syntax in JSP documents than in non JSP documents; rather than using <%= expr %>, they use %= expr %.
+	- The white space around expr is not needed, and note the missing < and >.
+	- The expr, after any applicable quoting as in any other XML document, is an expression to be evaluated

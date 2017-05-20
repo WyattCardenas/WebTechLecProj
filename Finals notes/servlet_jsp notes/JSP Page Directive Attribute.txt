@@ -1,0 +1,106 @@
+The Page Directive
+  -The page directive defines a number of page dependent properties and communicates these to the JSP container.
+  - This <jsp:directive.page> element describes the same information following the XML syntax
+  - A translation unit (JSP source file and any files included via the include directive) can contain more than one instance of the page directive, all the attributes will apply to the complete translation unit.
+  
+Syntax:
+      
+    <%@ page page_directive_attr_list %>
+    page_directive_attr_list ::= { language=”scriptingLanguage”}
+                                { extends=”className” }
+                                { import=”importList” }
+                                { session=”true|false” }
+                                { buffer=”none|sizekb” }
+                                { autoFlush=”true|false” }
+                                { isThreadSafe=”true|false” }
+                                { info=”info_text” }
+                                { errorPage=”error_url” }
+                                { isErrorPage=”true|false” }
+                                { contentType=”ctinfo” }
+                                { pageEncoding=”peinfo” }
+                                { isELIgnored=”true|false” }
+                                { deferredSyntaxAllowedAsLiteral=”true|false”}
+                                { trimDirectiveWhitespaces=”true|false”}
+ 
+Page Directive Attributes
+
+language - Defines the scripting language to be used in the scriptlets, expression scriptlets, and declarations within the body of the translation unit. 
+    <%@ page language="java" %>
+
+extends - The value is a fully qualified Java programming language class name, that names the superclass of the class to which this JSP page is transformed 
+         - This attribute should not be used without careful consideration as it restricts the ability of the JSP container to provide specialized superclasses that may improve on the quality of rendered service.
+    <%@ page extends="org.apache.jasper.runtime.HttpJspBase" %>
+         
+import - An import attribute describes the types that are available to the scripting environment.         
+        - This attribute is currently only defined when the value of the language directive is java.
+    <%@ page import="java.util.Date,java.util.List,java.io.*" %>
+        
+session - Indicates that the page requires participation in an (HTTP) session.
+         - If true then the implicit script language variable named session of type javax.servlet.http.HttpSession references the current/new session for the page. 
+         - If false then the page does not participate in a session; the session implicit variable is unavailable, and any reference to it within the body of the JSP page is illegal and shall result in a fatal translation error.
+         - Default is true
+    <%@ page session	="false" %>
+    
+buffer - Specifies the buffering model for the initial out JspWriter to handle content output from the page.        
+        - If a buffer size is specified then output is buffered with a buffer size not less than that specified.
+     <%@ page buffer="16kb" %>
+     
+autoFlush - Specifies whether the buffered output should be flushed automatically (true value) when the buffer is filled, or whether an exception should be raised (false value) to indicate buffer overflow. 
+     <%@ page isErrorPage="true" %>
+
+isThreadSafe - Indicates the level of thread safety implemented in the page.
+              - If false then the JSP container shall dispatch multiple outstanding client requests, one at a time, in the order they were received, to the page implementation for processing.        
+              - If true then the JSP container may choose to dispatch multiple outstanding client requests to the page simultaneously
+    <%@ page isThreadSafe="false" %>
+              
+info - Defines an arbitrary string that is incorporated into the translated page, that can subsequently be obtained from the page’s implementation of Servlet.getServletInfo method. 
+     <%@ page info="Home Page JSP" %>
+     
+isErrorPage - Indicates if the current JSP page is intended to be the URL target of another JSP page’s errorPage.        
+            - If true, then the implicit script language variable exception is defined and its value is a reference to the offending Throwable from the source JSP page in error.  
+            - If false then the exception implicit variable is unavailable, and any reference to it within the body of the JSP page is illegal and shall result in a fatal translation error.
+            - Default is false.
+    <%@ page isErrorPage="true" %>            
+            
+errorPage - Defines a URL to a resource to which any Java programming language Throwable object(s) thrown but not caught by the page implementation are forwarded for error processing.     
+    <%@ page errorPage="errorHandler.jsp" %>
+
+contentType - Defines the MIME type and the character encoding for the response of the JSP page, and is also used in determining the character encoding of the JSP page.
+    <%@ page contentType="text/html; charset=US-ASCII" %>
+     
+pageEncoding - Describes the character encoding for the JSP page. The value is of the form “CHARSET”, which must be the IANA name for a character encoding.
+   <%@ page pageEncoding="US-ASCII" %>
+     
+isELIgnored - Defines whether EL expressions are ignored or recognized for this page and translation unit. 
+deferredSyntaxAllowedAsLiteral - Indicates if the character sequence #{ is allowed or not when used as a String literal in this page and translation unit. 
+    <%@ page isELIgnored="true" %>
+    
+trimDirectiveWhitespaces - Indicates how whitespaces in template text should be handled. If true, template text that contains only whitespaces is removed from the output.         
+    <%@ page trimDirectiveWhitespaces	="true" %>
+
+The jsp:id Attribute
+  - A JSP container must support a jsp:id attribute.
+  - This attribute can only be present in the XML view of a JSP page and can be used to improve the quality of translation time error messages.
+  - The XML view of any JSP page will have an additional jsp:id attribute added to all XML elements.
+  - This attribute is given a value that is unique over all elements in the XML view.
+  
+  The tag Directive
+        The tag directive is applicable to tag files only. A tag directive of the form:       
+        <%@ tag { attr=”value” }* %>      
+        is translated into an element of the form:
+        <jsp:directive.tag { attr=”value” }* />
+      
+      The value of the pageEncoding attribute is set to "UTF-8". A tag directive and the pageEncoding attribute are added if they don’t exist already.
+      
+  The attribute Directive
+        The attribute directive is applicable to tag files only. An attribute directive of the form:
+        <%@ attribute { attr=”value” }* %>
+        is translated into an element of the form:
+        <jsp:directive.attribute { attr=”value” }* />
+        
+        
+   The variable Directive
+        The variable directive is applicable to tag files only. A variable directive of the form:
+        <%@ variable { attr=”value” }* %>
+        is translated into an element of the form:
+        <jsp:directive.variable { attr=”value” }* />   
