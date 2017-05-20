@@ -1332,9 +1332,9 @@
                                         <li><strong>destroy()</strong> when terminating the servlet</li>
                                         <li>Garbage collection is handled by the garbage collector of the JVM </li>
                                     </ul>
-                                    <h6>Methods in details</h6>
+                                    <h5>Methods in details</h5>
                                     
-                                    <strong>init() method </strong>
+                                   <h6> <strong>init() method </strong></h6>
                                         <li> used for initializing servlets</li>
                                         <li>Loads some data that are used throughtout the lifecycle</li>
                                         <p><b>Example:</b></p>
@@ -1343,13 +1343,25 @@
                                         // Initialization code...}
 										</code>   
                                     
-                                    <strong>init() method </strong>
-                                        <li> used for initializing servlets</li>
-                                        <li>Loads some data that are used throughtout the lifecycle</li>
+                                     <h6> <strong>service() method </strong></h6>
+                                        <li> main method for the actual task</li>
+                                        <li>Checks the HTTP request (GET, POST, PUT, DELETE, etc.) and calls doGet, doPost, doPut, doDelete, etc. methods</li>
                                         <p><b>Example:</b></p>
 										<code>
-					               public void init() throws ServletException {
-                                        // Initialization code...}
+					               public void service(ServletRequest request, 
+                                    ServletResponse response) 
+                                    throws ServletException, IOException{
+                                                  //codes  }
+										</code>   
+                                    
+                                    <h6> <strong>destroy() method </strong></h6>
+                                        <li> ends the lifecycle of a servler</li>
+                                        <li>closes database connections and performs other cleanup activities</li>
+                                        <p><b>Example:</b></p>
+										<code>
+					               public void destroy() {
+                                        // Finalization code...
+                                      }
 										</code>   
                                     
                                     
