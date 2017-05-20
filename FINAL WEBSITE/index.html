@@ -1314,7 +1314,420 @@
 										<h2>Finals</h2>
 									</header>
 									<h3 id="jee">Chapter 6: Java Servlets and JSPs</h3>
+									<h4>JavaServer Pages</h4>
+									<p>A standard java extension used to simplify the creation and management of dynamic web pages. JSP’s allow us to separate the dynamic content of webpage from static presentation content. A JSP page consists of HTML tags and JSP tags. HTML tags are used to create static page content and JSP tags are used to add dynamic content to web pages. JSP pages are compiled into a Java Servlet by a JSP translator.</p>
+									<p>JavaServer Pages (JSP) is a technology for developing Webpages that supports dynamic content. This helps developers insert java code in HTML pages by making use of special JSP tags, most of which start with <% and end with %>. A JavaServer Pages component is a type of Java servlet that is designed to fulfill the role of a user interface for a Java web application. Web developers write JSPs as text files that combine HTML or XHTML code, XML elements, and embedded JSP actions and commands.</p>
 									
+									<h5>Advantages of JSP</h5>
+									<ul>
+										<li>JSP pages easily combines static templates like HTML or XML fragments.</li>
+										<li>Before execution, JSP pages are compiled into servlets so we can easily update presentation code.</li>
+										<li>If JSP page is modified, then there is no need to recompile and redeploy the project. We only need to recompile and redeploy the servlet code.</li>
+										<li>It is easy to separate business logic from presentation logic. So JSP can be easily managed.</li>
+										<li>It is easy to learn and easy to implement.</li>
+										<li>JSP environment provides compilation of pages automatically.</li>
+										<li>Servlets cannot be accessed directly whereas a JSP page can be accessed directly as a simple HTML page.</li>
+									</ul>
+
+									<h5>JSP Life Cycle</h5>
+									<ul>
+										<li>Translate the JSP to servlet code.</li>
+										<li>Compile the servlet to byte code.</li>
+										<li>Load the servlet class.</li>
+										<li>Create the servlet instance.</li>
+										<li>Call the jspInit method.</li>
+										<li>Call the _jspService method.</li>
+										<li>Call the jspDestroy method.</li>
+									</ul>
+
+									<table>
+										<thead>
+											<th>Phase</th>
+											<th>Description</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>JSP Page Translation</td>
+												<td>the web container translates the JSP file into a Java source file that contains a servlet class definition. The web container validates the correctness of JSP pages and tag files.</td>
+											</tr>
+
+											<tr>
+												<td>JSP Page Compilation</td>
+												<td>the web container compiles the servlet source code into a Java class file.</td>
+											</tr>
+
+											<tr>
+												<td>JSP Page Class Loading</td>
+												<td>the servlet class byte code is loaded into the web container’s JVM software using class loader.</td>
+											</tr>
+
+											<tr>
+												<td>JSP Page Servlet Instance</td>
+												<td>the web container creates an instance of the servlet class.</td>
+											</tr>
+
+											<tr>
+												<td>JSP Page Initialization</td>
+												<td>the web container initializes the servlet by calling the jspInit() method. This method is called immediately after the instance gets created. It is called only once during JSP life cycle.</td>
+											</tr>
+										</tbody>
+									</table>
+								
+									<div class="page">
+										<table>
+											<thead>
+												<tr>
+												<th>JSP Element</th>
+												<th>Example</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+												<td>Comment</td>
+												<td> <%-- comment --%> </td>
+												</tr>
+												<tr>
+												<td>Directive</td>
+												<td> <%@ directive %> </td>
+												</tr>
+												<tr>
+												<td>Declaration</td>
+												<td> <%! declaration %> </td>
+												</tr>
+												<tr>
+												<td>Scriptlet</td>
+												<td> <% scriplets %> </td>
+												</tr>
+												<tr>
+												<td>Expression</td>
+												<td> <%= expression %> </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<div class="page">
+									<h4>JSP Directives</h4>
+										<p>Directives provide directions and instructions to the container, telling it how to handle certain aspects of the JSP processing.</p>
+										<ul>
+										<p>Types of Directives:</p>
+											<li>Page Directive</li>
+											<li>Taglib Directive</li>
+											<li>Include Directive</li>
+										</ul>
+
+										<h5>The Page Directive</h5>
+										<p>The page directive defines a number of page dependent properties and communicates these to the JSP container. A translation unit (JSP source file and any files included via the include directive) can contain more than one instance of the page directive, all the attributes will apply to the complete translation unit.</p>
+										<p><b>Example:</b></p>
+										<pre><code>
+					<%@ page attribute = "value" %>
+										</code></pre>
+
+										<h5>The Taglib Directive</h5>
+										<p>The taglib directive declares that your JSP page uses a set of custom tags, identifies the location of the library, and provides means for identifying the custom tags in your JSP page. Declares a tag library, containing custom actions, used in the page.</p>
+										<p><b>Example:</b></p>
+										<pre><code>
+					<%@ taglib uri="uri" prefix = "prefixOfTag" %>
+										</code></pre>
+
+										<h5>The Include Directive</h5>
+										<p>The include directive gives instructions to the container to merge contents from other external files with the current JSP file. This directive is used to include a file during the transslation phase.</p>
+										<p><b>Example:</b></p>
+										<pre><code>
+					<%@ include file = "relative url path" %>
+										</code></pre>
+									</div>
+									
+									<div class="page">
+										<table>
+											<thead>
+												<tr>
+												<th>Attribute</th>
+												<th>Description</th>
+												<th>Example</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+												<td>autoFlush</td>
+												<td>Specifies whether the buffered output should be flushed automatically (true value) when the buffer is filled, or whether an exception should be raised (false value) to indicate buffer overflow.</td>
+												<td><%@ page isErrorPage="true" %></td>
+												</tr>
+
+												<tr>
+												<td>buffer</td>
+												<td>Specifies the buffering model for the initial out JspWriter to handle content output from the page.
+												<br><br> If a buffer size is specified then output is buffered with a buffer size not less than that specified.</td>
+												<td><%@ page buffer="16kb" %></td>
+												</tr>
+
+												<tr>
+												<td>contentType</td>
+												<td>Defines the MIME type and the character encoding for the response of the JSP page, and is also used in determining the character encoding of the JSP page.</td>
+												<td><%@ page contentType="text/html; charset=US-ASCII" %></td>
+												</tr>
+
+												<tr>
+												<td>errorPage</td>
+												<td>Defines a URL to a resource to which any Java programming language Throwable object(s) thrown but not caught by the page implementation are forwarded for error processing.</td>
+												<td><%@ page errorPage="errorHandler.jsp" %></td>
+												</tr>
+
+												<tr>
+												<td>extends</td>
+												<td>The value is a fully qualified Java programming language class name, that names the superclass of the class to which this JSP page is transformed.<br><br>
+												This attribute should not be used without careful consideration as it restricts the ability of the JSP container to provide specialized superclasses that may improve on the quality of rendered service.</td>
+												<td><%@ page extends="org.apache.<br>jasper.runtime.HttpJspBase" %></td>
+												</tr>
+
+												<tr>
+												<td>import</td>
+												<td>An import attribute describes the types that are available to the scripting environment.<br><br>This attribute is currently only defined when the value of the language directive is java.</td>
+												<td><%@ page import="java.<br>util.Date,java.util.<br>List,java.io.*" %></td>
+												</tr>
+
+												<tr>
+												<td>info</td>
+												<td>Defines an arbitrary string that is incorporated into the translated page, that can subsequently be obtained from the page’s implementation of Servlet.getServletInfo method.</td>
+												<td><%@ page info="Home Page JSP" %></td>
+												</tr>
+
+												<tr>
+												<td>isELIgnored</td>
+												<td>Defines whether EL expressions are ignored or recognized for this page and translation unit.</td>
+												<td><%@ page isELIgnored="true" %></td>
+												</tr>
+
+												<tr>
+												<td>isErrorPage</td>
+												<td>Indicates if the current JSP page is intended to be the URL target of another JSP page’s errorPage.<br><br>
+												If true, then the implicit script language variable exception is defined and its value is a reference to the offending Throwable from the source JSP page in error.<br><br>
+												If false then the exception implicit variable is unavailable, and any reference to it within the body of the JSP page is illegal and shall result in a fatal translation error.</td>
+												<td><%@ page isErrorPage="true" %></td>
+												</tr>
+
+												<tr>
+												<td>isThreadSafe</td>
+												<td>Indicates the level of thread safety implemented in the page.<br><br>
+												If false then the JSP container shall dispatch multiple outstanding client requests, one at a time, in the order they were received, to the page implementation for processing.<br><br>
+												If true then the JSP container may choose to dispatch multiple outstanding client requests to the page simultaneously.</td>
+												<td><%@ page isThreadSafe="false" %></td>
+												</tr>
+
+												<tr>
+												<td>language</td>
+												<td>Defines the scripting language to be used in the scriptlets, expression scriptlets, and declarations within the body of the translation unit.</td>
+												<td><%@ page language="java" %></td>
+												</tr>
+
+												<tr>
+												<td>pageEncoding</td>
+												<td>Describes the character encoding for the JSP page. The value is of the form “CHARSET”, which must be the IANA name for a character encoding.</td>
+												<td><%@ page pageEncoding="US-ASCII" %></td>
+												</tr>
+
+												<tr>
+												<td>session</td>
+												<td>Indicates that the page requires participation in an (HTTP) session.<br><br>
+												If true then the implicit script language variable named session of type javax.servlet.http.HttpSession references the current/new session for the page.<br><br>
+												If false then the page does not participate in a session; the session implicit variable is unavailable, and any reference to it within the body of the JSP page is illegal and shall result in a fatal translation error.</td>
+												<td><%@ page session	="false" %></td>
+												</tr>
+
+												<tr>
+												<td>trimDirectiveWhitespaces</td>
+												<td>Indicates how whitespaces in template text should be handled. If true, template text that contains only whitespaces is removed from the output.</td>
+												<td><%@ page trimDirectiveWhitespaces ="true" %></td>
+												</tr>
+											</tbody>
+										</table>			
+									</div>
+									
+									<div class='page'>
+										<h4>JSP Scripting Elements</h4>
+
+										<h5>Declarations</h5>
+										<ul>
+											<li>Declaring one or more variables/methods. These declarations can be used in a Java code later in a JSP file.</li>
+											<li>Variable or method should be declared before it is used in the JSP file.</li>
+										</ul>
+										
+										<h5>Expressions</h5>
+										<ul>
+											<li>Can contain any expression as long as it is validated based from the Java Language Specification.</li>
+											<li>A semicolon is not needed to end an expression.</li>
+										</ul>
+
+										<h5>Scriptlets</h5>
+										<ul>
+											<li>Can contain any code fragments that are valid for the scripting language specified in the language attribute of the page directive. Whether the code fragment is legal depends on the details of the scripting language.</li>
+											<li>Executed at request-processing time. Whether or not they produce any output into the out stream depends on the code in the scriptlet.</li>
+											<li>Can have side-effects, modifying the objects visible to them.</li>
+										</ul>
+									</div>
+									
+									<div class='page'>
+										<h4>JSP Actions</h4>
+										<p>Actions use constructs in XML syntax to control the behavior of the servlet engine. You can dynamically insert a file, reuse JavaBeans components, forward the user to another page, or generate HTML for the Java plugin.</p>
+										<ul>
+											<p><b>Different kinds:</b></p>
+											<li>Standard Actions</li>
+											<li>Expression Language (EL)</li>
+											<li>Implicit Scripting Objects</li>
+											<li>Implicit EL Objects</li>
+										</ul>
+
+										<h5>Standard Actions</h5>
+										<p>Standard actions are represented using XML elements with a prefix of jsp (though that prefix can be redefined in the XML syntax). A translation error will result if the JSP prefix is used for an element that is not a standard action.</p>	
+										<table>
+											<thead>
+												<th>Element Body</th>
+												<th>Production</th>
+												<th>Valid Attr Combinations</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td>jsp:useBean</td>
+													<td>OptionalBody</td>
+													<td>( !id, scope, !class)<br>
+														( !id, scope, !type )<br>
+														( !id, scope, !class, !type )<br>
+														( !id, scope, =!beanName, !type )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:setProperty</td>
+													<td>EmptyBody</td>
+													<td>( !name, !property, param )<br>
+														( !name, !property, =!value )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:get</td>
+													<td>Property EmptyBody</td>
+													<td>( !name, !property )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:include</td>
+													<td>ParamBody</td>
+													<td>( =!page, flush )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:forward</td>
+													<td>ParamBody</td>
+													<td>( =!page )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:plugin</td>
+													<td>PluginBody</td>
+													<td>( !type, !code, !codebase,<br> 
+														align, archive, =height,<br> 
+														hspace, jreversion, name,<br> 
+														vspace, title, =width, nspluginurl,<br> 
+														iepluginurl, mayscript )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:invoke</td>
+													<td>EmptyBody</td>
+													<td>( !fragment, !var, scope )<br>
+														( !fragment, !varReader, scope )<br>
+														( !fragment )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:doBody</td>
+													<td>EmptyBody</td>
+													<td>( !var, scope )<br>
+														( !varReader, scope )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:element</td>
+													<td>OptionalBody</td>
+													<td>( =!name )</td>
+												</tr>
+
+												<tr>
+													<td>jsp:output</td>
+													<td>EmptyBody</td>
+													<td>( omit-xml-declaration )<br>
+														( omit-xml-declaration,<br> 
+														!doctype-root-element,<br> 
+														!doctype-system,<br> 
+														doctype-public ) </td>
+												</tr>
+
+												<tr>
+													<td>jsp:param</td>
+													<td>EmptyBody</td>
+													<td>( !name, =!value )</td>
+												</tr>
+											</tbody>
+										</table>
+
+										<h5>Expression Language</h5>
+										<ul>
+											<li>Can appear in template data and in attribute values.</li>  
+											<li>Can be disabled through the use of JSP configuration elements and page directives.</li> 
+											<li>When not disabled, can be used anywhere within template data.</li> 
+											<li>Can be used in any attribute of a standard action that this specification indicates can accept a run-time expression value, and in any attribute of a custom action that has been indicated to accept run-time expressions.</li>
+											<li>Expression Language (EL) makes it possible to easily access application data stored in JavaBeans components.</li>
+										</ul>
+
+										<table>
+											<thead>
+												<th>Expression</th>
+												<th>Result</th>
+											</thead>
+											<tbody>
+													<tr>
+													<td>${header["host"]}</td>
+													<td>The host</td>
+												</tr>
+
+												<tr>
+													<td>${!empty param.Add}</td>
+													<td>False if the request parameter named Add is null or an empty string.</td>
+												</tr>
+
+												<tr>
+													<td>${pageContext.request.requestURI}</td>
+													<td>The request's URI (obtained from HttpServletRequest)</td>
+												</tr>
+
+												<tr>
+													<td>${sessionScope.profile}</td>
+													<td>The session-scoped attribute named profile (null if not found)</td>
+												</tr>
+
+												<tr>
+													<td>${param.productId}</td>
+													<td>The String value of the productId parameter, or null if not found</td>
+												</tr>
+
+												<tr>
+													<td>${paramValues.productId}</td>
+													<td>The String[] containing all values of the productId parameter, or null if not found</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class='page'>
+										<h4>Handling</h4>
+										<p>
+										 Cookies are text files stored on the client computer and they are kept for various information tracking purposes. JSP transparently supports HTTP cookies using underlying servlet technology.
+										</p>
+										<h5>Delete Cookies with JSP</h5>
+										<ul>
+											<li>Read an already existing cookie and store it in Cookie object.</li>
+											<li>Set cookie age as zero using the setMaxAge() method to delete an existing cookie.</li>
+											<li>Add this cookie back into the response header.</li>
+										</ul>
+									</div>
 									
 									<h3 id="php">Chapter 7: PHP</h3>
 									
@@ -1342,7 +1755,6 @@
 										<li><b>Underprotected APIs</b> - Modern applications often involve rich client applications and APIs, such as JavaScript in the browser and mobile apps, that connect to an API of some kind (SOAP/XML, REST/JSON, RPC, GWT, etc.). These APIs are often unprotected and contain numerous vulnerabilities.</li>
 									</ol>
 								</section>
-
 						</div>
 					</div>
 
