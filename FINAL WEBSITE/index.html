@@ -1314,6 +1314,45 @@
 										<h2>Finals</h2>
 									</header>
 									<h3 id="jee">Chapter 6: Java Servlets and JSPs</h3>
+                                    <h4>Java Servlets</h4>
+                                    <p>Programs that run on a Web Application that handles requests coming from a browser and databases or applications on the HTTP server. It collects user input from web page forms, fetch information from a database and create web pages dynamically</p>
+                                    <h5>Servlets Tasks</h5>
+                                    <ul>
+                                        <li>Read data entered by users in forms.</li>
+                                        <li>Read implicit HTTP requests sent by clients.</li>
+                                        <li>Process data and generate results dynamically.</li>
+                                        <li>Send the implicit HTTP response to the users.</li>
+                                    </ul>
+                                    <h5>Servlet Lifecycle</h5>
+                                    <p>The entire process from its creation to destruction.</p>
+                                    <p>Here are the paths that servlets follow:</p>
+                                    <ul>
+                                        <li><strong>init()</strong> is for initializing the servler</li>
+                                        <li><strong>service()</strong> is for processing client requests</li>
+                                        <li><strong>destroy()</strong> when terminating the servlet</li>
+                                        <li>Garbage collection is handled by the garbage collector of the JVM </li>
+                                    </ul>
+                                    <h6>Methods in details</h6>
+                                    
+                                    <strong>init() method </strong>
+                                        <li> used for initializing servlets</li>
+                                        <li>Loads some data that are used throughtout the lifecycle</li>
+                                        <p><b>Example:</b></p>
+										<code>
+					               public void init() throws ServletException {
+                                        // Initialization code...}
+										</code>   
+                                    
+                                    <strong>init() method </strong>
+                                        <li> used for initializing servlets</li>
+                                        <li>Loads some data that are used throughtout the lifecycle</li>
+                                        <p><b>Example:</b></p>
+										<code>
+					               public void init() throws ServletException {
+                                        // Initialization code...}
+										</code>   
+                                    
+                                    
 									<h4>JavaServer Pages</h4>
 									<p>A standard java extension used to simplify the creation and management of dynamic web pages. JSP’s allow us to separate the dynamic content of webpage from static presentation content. A JSP page consists of HTML tags and JSP tags. HTML tags are used to create static page content and JSP tags are used to add dynamic content to web pages. JSP pages are compiled into a Java Servlet by a JSP translator.</p>
 									<p>JavaServer Pages (JSP) is a technology for developing Webpages that supports dynamic content. This helps developers insert java code in HTML pages by making use of special JSP tags, most of which start with <% and end with %>. A JavaServer Pages component is a type of Java servlet that is designed to fulfill the role of a user interface for a Java web application. Web developers write JSPs as text files that combine HTML or XHTML code, XML elements, and embedded JSP actions and commands.</p>
